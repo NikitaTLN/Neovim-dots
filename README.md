@@ -1,4 +1,4 @@
-<h1 align="center">NVW1dget</h1>
+<h1 align="center">Neovim-dots</h1>
 
 <p align="center">
 A minimalistic nvim config aimed at C# and Unity developers on MacOS and Linux. It is a lightweight replacement for Rider and VSCode, eliminating all unnecessary features to be easily portable for running on servers and for deployment on Linux and MacOS systems.
