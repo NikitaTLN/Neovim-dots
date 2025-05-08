@@ -32,7 +32,7 @@ sudo apt install npm
 
 ```sh
 mkdir -p ~/.config/nvim
-git clone https://github.com/NikitaTLN/NVW1dget.git ~/.config/nvim
+git clone https://github.com/NikitaTLN/Neovim-dots.git ~/.config/nvim
 nvim -c "MasonInstall pyright ruff omnisharp omnisharp-mono lua-language-server csharp-language-server"
 ```
 
