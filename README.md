@@ -1,11 +1,11 @@
 <h1 align="center">NVW1dget</h1>
 
 <p align="center">
-A minimalistic nvim config aimed at C# and Unity developers on MacOS. It is a lightweight replacement for Rider and VSCode, eliminating all unnecessary featuresd to be easily portable for running on servers and for deployment on Linux systems.
+A minimalistic nvim config aimed at C# and Unity developers on MacOS and Linux. It is a lightweight replacement for Rider and VSCode, eliminating all unnecessary features to be easily portable for running on servers and for deployment on Linux and MacOS systems.
 </p>
 
 <p align="center">
-Credits to ZedProger for the base config
+Credits to ZProger for the base config
 </p>
 
 ## ✨ Features
@@ -26,6 +26,8 @@ rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
 
 ```sh
 brew install git npm
+sudo pacman -S npm
+sudo apt install npm
 ```
 
 ```sh
@@ -33,3 +35,5 @@ mkdir -p ~/.config/nvim
 git clone https://github.com/NikitaTLN/NVW1dget.git ~/.config/nvim
 nvim -c "MasonInstall pyright ruff omnisharp omnisharp-mono lua-language-server csharp-language-server"
 ```
+
+p.s. you also need to configure ssh and github for copilot to work properly
