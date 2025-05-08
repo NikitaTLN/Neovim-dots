@@ -8,17 +8,6 @@ A minimalistic nvim config aimed at C# and Unity developers on MacOS. It is a li
 Credits to ZedProger for the base config
 </p>
 
-## 🌟 Preview
-![Images](Images/1.png)
-
-![Images](Images/2.png)
-
-![Images](Images/3.png)
-
-![Images](Images/4.png)
-
-![Images](Images/5.png)
-
 ## 🌟 What it is?
 - There are many forks of nvim, but what does this one do? The main purpose of this config is to create a minimal environment for Python development, so that it is not resource-hungry and can be deployed quickly on Linux systems.
 - It can be difficult for beginners to install all the necessary plugins and LSP servers to get started. Here you don't need to do anything, just run a few commands to install and immediately use auto-tips, Ruff formatting, Mypy fixes and all the other tricks without setting up configurations.
