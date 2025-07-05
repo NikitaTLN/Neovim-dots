@@ -1,1 +1,5 @@
-.DS_Store 
+./.gitignore
+./.DS_Store
+./lua/.DS_Store
+./lua/core/.DS_Store
+./lua/plugins/.DS_Store
