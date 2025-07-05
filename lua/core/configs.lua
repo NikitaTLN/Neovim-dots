@@ -1,10 +1,7 @@
--- Отключение уведомлений для health check
 vim.notify = function(msg, log_level)
-  -- Отключаем уведомления уровня "error" и "warn"
   if log_level >= vim.log.levels.WARN then
     return
   end
-  -- Выводим только информационные сообщения
   vim.api.nvim_out_write(msg .. "\n")
 end
 
@@ -15,7 +12,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
         vim.defer_fn(function()
             vim.cmd("silent! clear")
-        end, 100) -- Очистка сообщений через 100ms после запуска
+        end, 100)
     end,
 })
 vim.opt.guicursor = ""
@@ -27,53 +24,49 @@ vim.opt.wrap = false
 vim.wo.linebreak = true
 vim.opt.virtualedit = "block"
 vim.opt.undofile = true
-vim.opt.shell = "/bin/fish"            -- Shell по умолчанию
-vim.opt.swapfile = false               -- Отключить swap файлы nvim
-vim.opt.encoding = "utf-8"             -- Кодировка utf-8
-vim.opt.cursorline = true              -- Выделять активную строку где находится курсор
+vim.opt.shell = "/bin/zsh"            
+vim.opt.swapfile = false              
+vim.opt.encoding = "utf-8"            
+vim.opt.cursorline = true             
 vim.opt.fileformat = "unix"
 vim.opt.shortmess:append("sI")
 
--- Nvim-Tree
 vim.opt.termguicolors = true
 
--- Scroll
-vim.opt.so = 30                       -- При скролле курсор всегда по центру
-
--- Search
-vim.opt.ignorecase = true              -- Игнорировать регистр при поиске
-vim.opt.smartcase = true               -- Не игнорирует регистр если в паттерне есть большие буквы
-vim.opt.hlsearch = false               -- Подсвечивает найденный паттерн
-vim.opt.incsearch = true               -- Интерактивный поиск
+vim.opt.so = 30                       
+vim.opt.ignorecase = true              
+vim.opt.smartcase = true               
+vim.opt.hlsearch = false               
+vim.opt.incsearch = true               
 
 -- Mouse
-vim.opt.mouse = "a"                    -- Возможность использовать мышку
+vim.opt.mouse = "a"                    
 vim.opt.mousefocus = true
 
 -- Line Numbers
-vim.opt.number = true                  -- Показывает номера строк
-vim.opt.relativenumber = true         -- Показывает расстояние к нужной строке относительно нашей позиции
-vim.wo.number = true                   -- Показывает номера строк
-vim.wo.relativenumber = true         -- Показывает расстояние к нужной строке относительно нашей позиции
+vim.opt.number = true                  
+vim.opt.relativenumber = true         
+vim.wo.number = true                   
+vim.wo.relativenumber = true         
 
 -- Splits
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Clipboard
-vim.opt.clipboard = "unnamedplus"      -- Разрешить общий буфер обмена
+vim.opt.clipboard = "unnamedplus"      
 
 -- Shorter messages
 vim.opt.shortmess:append("c")
 
 -- Indent Settings
-vim.opt.expandtab = true               -- Превратить все tab в пробелы
+vim.opt.expandtab = true               
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.smartindent = true             -- Копировать отступ на новой строке
-vim.opt.cindent = true                 -- Автоотступы
-vim.opt.smarttab = true                -- Tab перед строкой вставит shiftwidht количество табов
+vim.opt.smartindent = true             
+vim.opt.cindent = true                 
+vim.opt.smarttab = true                
 
 -- Fillchars
 vim.opt.fillchars = {

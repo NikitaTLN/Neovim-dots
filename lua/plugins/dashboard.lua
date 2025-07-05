@@ -39,12 +39,29 @@ require('dashboard').setup {
                 icon_hl = 'Title',
                 desc = 'Explorer',
                 desc_hl = 'String',
-                key = 'p',
+                key = 'e',
                 keymap = 'SPC f p',
                 key_hl = 'Number',
                 action = ":e ~/"
+            }, {
+                icon = '',
+                icon_hl = 'Title',
+                desc = 'Recent Projects',
+                desc_hl = 'String',
+                key = 'p',
+                keymap = 'SPC f p',
+                key_hl = 'Number',
+                action = ":e ~/SimRacingGame"
+            }, {
+                icon = '',
+                icon_hl = 'Title',
+                desc = 'Git stuff',
+                desc_hl = 'String',
+                key = 'g',
+                keymap = 'SPC f p',
+                key_hl = 'Number',
+                action = ":LazyGit"
             }
-
         }
     }
 }

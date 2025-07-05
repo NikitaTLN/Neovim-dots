@@ -5,7 +5,7 @@ A minimalistic nvim config aimed at C# and Unity developers on MacOS and Linux. 
 </p>
 
 <p align="center">
-Credits to ZProger for the base config
+Fork of Zproger GenesisNvim
 </p>
 
 ## ✨ Features
@@ -33,7 +33,6 @@ sudo apt install npm
 ```sh
 mkdir -p ~/.config/nvim
 git clone https://github.com/NikitaTLN/Neovim-dots.git ~/.config/nvim
-nvim -c "MasonInstall pyright ruff omnisharp omnisharp-mono lua-language-server csharp-language-server"
 ```
 
 p.s. you also need to configure ssh and github for copilot to work properly

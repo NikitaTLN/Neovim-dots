@@ -1,4 +1,3 @@
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -6,13 +5,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+
+--	{ 'RRethy/vim-illuminate' },
+
     {
         'mfussenegger/nvim-dap',
         dependencies = {
@@ -21,43 +23,41 @@ require("lazy").setup({
             'rcarriga/nvim-dap-ui',
         }
     },
+
     { 'nvim-telescope/telescope-dap.nvim' },
 	{ 'theHamsta/nvim-dap-virtual-text' },
 	{ 'rcarriga/nvim-dap-ui' },
+
     {'theprimeagen/harpoon'},
     {'ThePrimeagen/vim-be-good'},
---    {
---        "neovim-remote/neovim-remote",
---        event = "VimEnter",
---    },
---    {
---        "nvim-neo-tree/neo-tree.nvim",
---        branch = "v2.x",
---        config = function()
---        require("neo-tree").setup({
---            filesystem = {
---                hijack_netrw = false,
---                disable_netrw = false,-- Отключаем захват netrw
---           },
-            -- Другие настройки...
---        })
-       -- end,
---        end,
---        },
-    
 
+    {
+        "kdheepak/lazygit.nvim",
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        keys = {
+            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+        },
+    },
 
 	{ 'nvim-treesitter/nvim-treesitter' },
 	{ 'neovim/nvim-lspconfig' },
 
-	-- Autocomplete support
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'hrsh7th/cmp-buffer' },
 	{ 'hrsh7th/cmp-path' },
 	{ 'hrsh7th/cmp-cmdline' },
 	{ 'hrsh7th/nvim-cmp' },
-	{ 'williamboman/mason.nvim' },
-    { 'williamboman/mason-lspconfig.nvim' },
+	{ 'mason-org/mason.nvim' },
+    { 'mason-org/mason-lspconfig.nvim' },
 	{ 'git@github.com:github/copilot.vim.git' },
 
     {
@@ -65,178 +65,30 @@ require("lazy").setup({
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
 
+	{
+	  'nvimdev/dashboard-nvim',
+	  event = 'VimEnter',
+	  config = function()
+	    require('dashboard').setup{}
+	  end,
+	  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+	},
 
-    	--{
-        --	"netrw-revival",
-        --	init = function()
-        --	    	-- снимаем блокировку netrw, которую LazyVim устанавливает
-         --   		vim.g.loaded_netrw = nil
-       --     		vim.g.loaded_netrwPlugin = nil
-     --   	end,
-   --     	lazy = false,
- --   	},
-
---	{
---	  'nvimdev/dashboard-nvim',
---	  event = 'VimEnter',
---	  config = function()
---	    require('dashboard').setup {
---	      -- config
---	    }
---	  end,
---	  dependencies = { {'nvim-tree/nvim-web-devicons'}}
---	},
-
---	{ 'Eandrju/cellular-automaton.nvim' },
---	{ 'norcalli/nvim-colorizer.lua' },
-
---	{
---	    'nvim-lualine/lualine.nvim',
---	    dependencies = { 'nvim-tree/nvim-web-devicons' }
---	},
-
---	{
---	  "folke/todo-comments.nvim",
---	  dependencies = { "nvim-lua/plenary.nvim" },
---	  opts = {
-	    -- your configuration comes here
-	    -- or leave it empty to use the default settings
-	    -- refer to the configuration section below
---	  }
---	},
-
---	{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
---	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    { 'nyoom-engineering/oxocarbon.nvim' },
-
-
-
---	{
---	    'numToStr/Comment.nvim',
---	    opts = {
-	        -- add any options here
---	    },
---	    lazy = false,
---	},
-
-	--{
--- 		"folke/noice.nvim",
-  --		event = "VeryLazy",
---  		opts = {
- --   			cmdline = {
-   --   				enabled = true,
-     -- 				view = "cmdline_popup", -- This makes it a floating window
-    --			},
-    --			views = {
-      --				cmdline_popup = {
-        --				position = {
-          --					row = "90%",
-          	--				col = "50%",
-        	--			},
-        	--			size = {
-          	--				width = 60,
-          	--				height = "auto",
-        	--			},
-      		--		},
-    		--	},
---  		},
-  --		dependencies = {
-    --		"MunifTanjim/nui.nvim",
-    --		"rcarriga/nvim-notify",
-  	--	},
---	},	
-
---	{'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
-
---	{
---	  "nvim-tree/nvim-tree.lua",
---	  version = "*",
---	  lazy = false,
---	  dependencies = {
---	    "nvim-tree/nvim-web-devicons",
---	  },
---	  config = function()
---	    require("nvim-tree").setup ({
-  --          hijack_netrw = false,
-    --    })
-	  --end,
-	--},
-
-
--- В файле plugins.lua
-
---    {
---        "justinmk/vim-dirvish",
---        config = function()
---            vim.cmd("command! Ex Dirvish")
---        end,
---    },
-
---    {
---        'tpope/vim-vinegar',
---        event = 'VimEnter',
---    },
-
---    {
---        'neovim/neovim',
---        event = 'VimEnter',
---        config = function()
---            vim.g.loaded_netrw = 0
---            vim.g.loaded_netrwPlugin = 0 
---            vim.cmd("runtime! plugin/netrwPlugin.vim")
---        end,
---    },
---	{
---	    'dense-analysis/ale',
---	    config = function()
---	        -- Configuration goes here.
---	        local g = vim.g
---	
---	        g.ale_linters = {
---	        	python = {'mypy'},
---	            lua = {'lua_language_server'}
---	        }
---	    end
---	},
-
---    {
---        "dreamsofcode-io/ChatGPT.nvim",
---        event = "VeryLazy",
---        dependencies = {
---            "MunifTanjim/nui.nvim",
---            "nvim-lua/plenary.nvim",
---            "nvim-telescope/telescope.nvim",
---        },
---        config = function()
---           require("chatgpt").setup({
---		async_api_key_cmd = "echo $OPENAI_API_KEY"
---	    })
---	end,  
---    },
-
-    
-
-	{ 'RRethy/vim-illuminate' },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+ 	{ 'nyoom-engineering/oxocarbon.nvim' },
+	{
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+    },
 
 	{
 	    "vhyrro/luarocks.nvim",
-	    priority = 1001, -- this plugin needs to run before anything else
-	    opts = {
-	        rocks = { "magick" },
-	    },
+	    priority = 1001,
+        config = true,
+        lazy=false,
 	},
-
-	--{
---	 "folke/trouble.nvim",
---	 dependencies = { "nvim-tree/nvim-web-devicons" },
---	 opts = {
-	  -- your configuration comes here
-	  -- or leave it empty to use the default settings
-	  -- refer to the configuration section below
---	 },
---	},
-
---	{'akinsho/toggleterm.nvim', version = "*", config = true},
 
 	{
 	  "folke/which-key.nvim",
@@ -245,17 +97,9 @@ require("lazy").setup({
           ignore_missing = true,
 	  init = function()
 	    vim.o.timeout = false
---	    vim.o.timeoutlen = 300
 	  end,
-	  opts = {
-	    -- your configuration comes here
-	    -- or leave it empty to use the default settings
-	    -- refer to the configuration section below
-	  }
 	},
 
-	-- Выравнивание и перемещение текста
-	-- Автоматическое открытие фигурных скобок, кавычек и т.д
 	{ 'echasnovski/mini.nvim', version = false },
 	{ 'echasnovski/mini.move', version = false },
 	{ 'echasnovski/mini.pairs', version = false },
