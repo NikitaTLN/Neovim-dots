@@ -58,7 +58,7 @@ require("lazy").setup({
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'mason-org/mason.nvim' },
     { 'mason-org/mason-lspconfig.nvim' },
-	{ 'git@github.com:github/copilot.vim.git' },
+	{ 'github/copilot.vim' },
 
     {
 		'nvim-telescope/telescope.nvim', tag = '0.1.6',
